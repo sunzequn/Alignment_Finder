@@ -3,6 +3,7 @@
 # IDEA
 Alignment_Finder.iml
 .idea
+/src/main/resources/data/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
