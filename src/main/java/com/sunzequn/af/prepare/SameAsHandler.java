@@ -90,12 +90,18 @@ public class SameAsHandler {
             return null;
         }
         List<Triple> triples = new ArrayList<>();
-        while (rs.hasNext()) {
-            QuerySolution qs = rs.next();
-            Triple triple = new Triple(uri, qs.get("p").toString(), qs.get("o").toString());
-            triples.add(triple);
+        try {
+            while (rs.hasNext()) {
+                QuerySolution qs = rs.next();
+                Triple triple = new Triple(uri, qs.get("p").toString(), qs.get("o").toString());
+                triples.add(triple);
+            }
+            return triples.size() != 0 ? triples : null;
+        } catch (Exception e) {
+            System.out.println(uri);
+            return null;
         }
-        return triples.size() != 0 ? triples : null;
+
     }
 
     /**
