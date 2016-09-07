@@ -5,6 +5,9 @@ Alignment_Finder.iml
 .idea
 /src/main/resources/data/
 /target/
+/data/
+
+/.swp
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/

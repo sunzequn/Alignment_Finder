@@ -1,5 +1,6 @@
 package com.sunzequn.af.prepare;
 
+import com.sunzequn.af.dao.Query;
 import com.sunzequn.af.utils.PropertiesUtil;
 import com.sunzequn.af.utils.SerializableUtil;
 import com.sunzequn.af.utils.TimeUtil;
@@ -15,14 +16,11 @@ import java.util.List;
 
 /**
  * Created by sloriac on 16-9-1.
+ *
+ * 读取sameAs文件，抽取DBpedia和GeoNames的三元组数据，写入文件
  */
 public class SameAsHandler {
 
-    // DBpedia官方提供的到GeoNames的链接实例数据文件
-    private static final String SAME_AS_FILE = "src/main/resources/data/geonames_links_en.ttl";
-    private static final String VIRTUOSO_CONF = "src/main/resources/conf/virtuoso.properties";
-    private static final String DBPEDIA_CORE_TRIPLES = "src/main/resources/data/dbpedia_triples_core";
-    private static final String GEONAMES_CORE_TRIPLES = "src/main/resources/data/geonames_triples_core";
     private static final String DBPEDIA_CORE_GRAPH = "<http://en.dbpedia.org/>";
     private static final String GEONAMES_CORE_GRAPH = "<http://www.geonames.org/about/>";
     private static final int TIME_OUT = 6000;
@@ -32,8 +30,8 @@ public class SameAsHandler {
     private static String urlSuffix;
 
     private static Query query = new Query();
-    private static WriteUtil dbpediaWriteUtil = new WriteUtil(DBPEDIA_CORE_TRIPLES, false);
-    private static WriteUtil geonamesWriteUtil = new WriteUtil(GEONAMES_CORE_TRIPLES, false);
+    private static WriteUtil dbpediaWriteUtil = new WriteUtil(CONF.DBPEDIA_CORE_TRIPLES, false);
+    private static WriteUtil geonamesWriteUtil = new WriteUtil(CONF.GEONAMES_CORE_TRIPLES, false);
 
     public static void main(String[] args) throws Exception {
         init();
@@ -43,14 +41,14 @@ public class SameAsHandler {
     }
 
     private static void init() {
-        PropertiesUtil propertiesUtil = new PropertiesUtil(VIRTUOSO_CONF);
+        PropertiesUtil propertiesUtil = new PropertiesUtil(CONF.VIRTUOSO_CONF);
         geonamesBaseUrl = propertiesUtil.getValue("geonames.baseUrl");
         dbpediaBaseUrl = propertiesUtil.getValue("dbpedia.baseUrl");
         urlSuffix = propertiesUtil.getValue("url.suffix");
     }
 
     private static void process() throws Exception {
-        File file = new File(SAME_AS_FILE);
+        File file = new File(CONF.SAME_AS_FILE);
         List<String> lines = FileUtils.readLines(file, "utf-8");
         System.out.println("链接实例的数据量： " + lines.size());
         for (String line : lines) {
