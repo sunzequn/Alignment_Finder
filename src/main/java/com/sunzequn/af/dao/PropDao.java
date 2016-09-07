@@ -27,4 +27,9 @@ public class PropDao extends BaseDao {
         }
         return batch(connection, sql, parmas);
     }
+
+    public List<Prop> getAll() {
+        String sql = "select * from " + table;
+        return query(connection, sql, null, Prop.class);
+    }
 }

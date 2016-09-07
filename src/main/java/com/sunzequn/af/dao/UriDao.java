@@ -1,6 +1,7 @@
 package com.sunzequn.af.dao;
 
 import com.sunzequn.af.bean.Uri;
+import com.sunzequn.af.prepare.CONF;
 
 import java.sql.Connection;
 import java.util.List;
@@ -25,6 +26,11 @@ public class UriDao extends BaseDao {
             parmas[i][0] = uris.get(i).getUri();
         }
         return batch(connection, sql, parmas);
+    }
+
+    public List<Uri> getAll() {
+        String sql = "select * from " + table;
+        return query(connection, sql, null, Uri.class);
     }
 
 }

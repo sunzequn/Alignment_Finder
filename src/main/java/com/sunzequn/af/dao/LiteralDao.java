@@ -29,4 +29,9 @@ public class LiteralDao extends BaseDao {
         return batch(connection, sql, parmas);
     }
 
+    public List<Literal> getAll() {
+        String sql = "select * from " + table;
+        return query(connection, sql, null, Literal.class);
+    }
+
 }

@@ -14,7 +14,7 @@ import java.util.List;
 public class BaseDao {
 
 
-    private static final String CLASS_NAME = "com.mysql.jdbc.Driver";
+    private static final String CLASS_NAME = "com.mysql.cj.jdbc.Driver";
     private static final String JDBC_URL_PREFIX = "jdbc:mysql://localhost:3306/alignment_finder";
     private static final String JDBC_URL_SUFFIX = "?useUnicode=true";
     private static final String USER = "root";
