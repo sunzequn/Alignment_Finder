@@ -35,8 +35,8 @@ public class GenerateId {
         Set<String> uris = new HashSet<>();
         Set<String> props = new HashSet<>();
         Set<String> literals = new HashSet<>();
-        File geoNamesFile = new File(file);
-        LineIterator it = FileUtils.lineIterator(geoNamesFile, "UTF-8");
+        File triplesFile = new File(file);
+        LineIterator it = FileUtils.lineIterator(triplesFile, "UTF-8");
 
         TimeUtil.start();
         while (it.hasNext()) {

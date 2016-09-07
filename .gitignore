@@ -3,7 +3,6 @@
 # IDEA
 Alignment_Finder.iml
 .idea
-/src/main/resources/data/
 /target/
 /data/
 
