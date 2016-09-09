@@ -24,5 +24,12 @@ public class CONF {
     public static final String DBPEDIA_PROP_ID = "d_prop";
     public static final String DBPEDIA_LITERAL_ID = "d_literal";
 
+    //--- 频数相关的文件 ---//
+    public static final String GEONAMES_FREQUENCY_PROP = "/home/sloriac/code/Alignment_Finder/data/geonames_frequency_prop";
+    public static final String GEONAMES_FREQUENCY_KV = "/home/sloriac/code/Alignment_Finder/data/geonames_frequency_kv";
+
+    public static final String DBPEDIA_FREQUENCY_PROP = "/home/sloriac/code/Alignment_Finder/data/dbpedia_frequency_prop";
+    public static final String DBPEDIA_FREQUENCY_KV = "/home/sloriac/code/Alignment_Finder/data/dbpedia_frequency_kv";
+
 
 }

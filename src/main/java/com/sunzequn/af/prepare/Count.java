@@ -4,6 +4,8 @@ import com.sunzequn.af.utils.ReadUtil;
 
 /**
  * Created by sloriac on 16-9-7.
+ *
+ * 基本的数量统计
  */
 public class Count {
 

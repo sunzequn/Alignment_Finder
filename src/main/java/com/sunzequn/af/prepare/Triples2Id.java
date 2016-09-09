@@ -19,6 +19,8 @@ import java.util.Map;
 
 /**
  * Created by sloriac on 16-9-7.
+ *
+ * 将三元组转化为id表示
  */
 public class Triples2Id {
 
