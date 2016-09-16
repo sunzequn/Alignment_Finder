@@ -16,6 +16,15 @@ public class ReadUtil {
     private File file;
     private LineIterator lineIterator;
 
+    public ReadUtil(File file) {
+        this.file = file;
+        try {
+            lineIterator = FileUtils.lineIterator(file, "UTF-8");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public ReadUtil(String filepath) {
         file = new File(filepath);
         try {

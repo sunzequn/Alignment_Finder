@@ -10,6 +10,9 @@ public class TimeUtil {
     private static long startTime;
     private static long endTime;
 
+    private TimeUtil() {
+    }
+
     public static void start() {
         startTime = new Date().getTime();
     }

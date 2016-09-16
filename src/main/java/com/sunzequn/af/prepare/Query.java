@@ -1,4 +1,4 @@
-package com.sunzequn.af.dao;
+package com.sunzequn.af.prepare;
 
 import org.apache.jena.query.ParameterizedSparqlString;
 import org.apache.jena.query.ResultSet;

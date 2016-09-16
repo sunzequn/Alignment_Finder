@@ -20,7 +20,7 @@ public class Count {
     }
 
     private static void countDbpediaTriples() {
-        ReadUtil readUtil = new ReadUtil(CONF.DBPEDIA_CORE_TRIPLES_BY_ID);
+        ReadUtil readUtil = new ReadUtil(CONF.DBPEDIA_ID_LITERAL);
         System.out.println("DBpedia有效三元组数量: " + readUtil.countLines());
     }
 }
