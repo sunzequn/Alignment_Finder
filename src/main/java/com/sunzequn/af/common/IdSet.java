@@ -1,4 +1,4 @@
-package com.sunzequn.af.prepare;
+package com.sunzequn.af.common;
 
 import com.sunzequn.af.utils.ReadUtil;
 import com.sunzequn.af.utils.SerializableUtil;
@@ -13,7 +13,7 @@ import java.util.Map;
  * <p>
  * id和uri等的对应集合
  */
-public class IDSET {
+public class IdSet {
 
     public static Map<String, String> geonamesIdUri;
     public static Map<String, String> geonamesIdProp;

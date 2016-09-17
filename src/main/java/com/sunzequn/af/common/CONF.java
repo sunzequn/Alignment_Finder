@@ -1,4 +1,4 @@
-package com.sunzequn.af.prepare;
+package com.sunzequn.af.common;
 
 /**
  * Created by sloriac on 16-9-5.
@@ -36,4 +36,14 @@ public class CONF {
     public static final String GEONAMES_FREQUENCY_PROP = "/home/sloriac/code/Alignment_Finder/data/frequency/geonames_frequency_prop";
     public static final String DBPEDIA_FREQUENCY_PROP_VALUE = "/home/sloriac/code/Alignment_Finder/data/frequency/dbpedia_frequency_prop_value";
     public static final String GEONAMES_FREQUENCY_PROP_VALUE = "/home/sloriac/code/Alignment_Finder/data/frequency/geonames_frequency_prop_value";
+
+    //id前缀
+    public static final String DBPEDIA_ID_PREFIX_URI = "D.U.";
+    public static final String DBPEDIA_ID_PREFIX_PROP = "D.P.";
+    public static final String DBPEDIA_ID_PREFIX_LITERAL = "D.L.";
+
+    public static final String GEONAMES_ID_PREFIX_URI = "G.U.";
+    public static final String GEONAMES_ID_PREFIX_PROP = "G.P.";
+    public static final String GEONAMES_ID_PREFIX_LITERAL = "G.L.";
+
 }

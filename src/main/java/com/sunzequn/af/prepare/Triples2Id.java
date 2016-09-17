@@ -1,6 +1,8 @@
 package com.sunzequn.af.prepare;
 
 
+import com.sunzequn.af.common.CONF;
+import com.sunzequn.af.common.IdSet;
 import com.sunzequn.af.utils.SerializableUtil;
 import com.sunzequn.af.utils.TimeUtil;
 import com.sunzequn.af.utils.WriteUtil;
@@ -8,8 +10,6 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,9 +20,9 @@ import java.util.Map;
 public class Triples2Id {
 
     public static void main(String[] args) throws Exception {
-        IDSET.load();
-//        handleTriples(CONF.GEONAMES_CORE_TRIPLES, CONF.GEONAMES_CORE_TRIPLES_BY_ID, IDSET.geonamesIdUri, IDSET.geonamesIdProp, IDSET.geonamesIdLiteral);
-        handleTriples(CONF.DBPEDIA_CORE_TRIPLES, CONF.DBPEDIA_CORE_TRIPLES_BY_ID, IDSET.dbpediaIdUri, IDSET.dbpediaIdProp, IDSET.dbpediaIdLiteral);
+        IdSet.load();
+//        handleTriples(CONF.GEONAMES_CORE_TRIPLES, CONF.GEONAMES_CORE_TRIPLES_BY_ID, IdSet.geonamesIdUri, IdSet.geonamesIdProp, IdSet.geonamesIdLiteral);
+        handleTriples(CONF.DBPEDIA_CORE_TRIPLES, CONF.DBPEDIA_CORE_TRIPLES_BY_ID, IdSet.dbpediaIdUri, IdSet.dbpediaIdProp, IdSet.dbpediaIdLiteral);
     }
 
     private static void handleTriples(String sourceFile, String targetFile, Map<String, String> idUri, Map<String, String> idProp, Map<String, String> idLiteral) throws Exception {

@@ -1,6 +1,6 @@
 package com.sunzequn.af.utils;
 
-import com.sunzequn.af.prepare.CONF;
+import com.sunzequn.af.common.CONF;
 import com.sunzequn.af.prepare.Triple;
 import org.apache.commons.lang3.StringUtils;
 

@@ -1,5 +1,6 @@
 package com.sunzequn.af.prepare;
 
+import com.sunzequn.af.common.CONF;
 import com.sunzequn.af.utils.MapUtil;
 import com.sunzequn.af.utils.ParseUtil;
 import com.sunzequn.af.utils.ReadUtil;
@@ -12,15 +13,14 @@ import java.util.Map;
 /**
  * Created by sloriac on 16-9-16.
  * <p>
- * 统计属性已经属性值对的频数
+ * 统计属性已经属性值对的频数　
  */
 public class FrequencyHandler {
 
-
     public static void main(String[] args) {
-//        propFrequency(CONF.GEONAMES_CORE_TRIPLES_BY_ID, CONF.GEONAMES_FREQUENCY_PROP);
-//        propFrequency(CONF.DBPEDIA_CORE_TRIPLES_BY_ID, CONF.DBPEDIA_FREQUENCY_PROP);
-//        propValueFrequency(CONF.GEONAMES_CORE_TRIPLES_BY_ID, CONF.GEONAMES_FREQUENCY_PROP_VALUE);
+        propFrequency(CONF.GEONAMES_CORE_TRIPLES_BY_ID, CONF.GEONAMES_FREQUENCY_PROP);
+        propFrequency(CONF.DBPEDIA_CORE_TRIPLES_BY_ID, CONF.DBPEDIA_FREQUENCY_PROP);
+        propValueFrequency(CONF.GEONAMES_CORE_TRIPLES_BY_ID, CONF.GEONAMES_FREQUENCY_PROP_VALUE);
         propValueFrequency(CONF.DBPEDIA_CORE_TRIPLES_BY_ID, CONF.DBPEDIA_FREQUENCY_PROP_VALUE);
     }
 

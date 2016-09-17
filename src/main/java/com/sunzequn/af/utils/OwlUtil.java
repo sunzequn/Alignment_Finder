@@ -1,12 +1,10 @@
 package com.sunzequn.af.utils;
 
-import com.sunzequn.af.prepare.CONF;
+import com.sunzequn.af.common.CONF;
 import org.apache.jena.rdf.model.*;
 
 import java.io.FileInputStream;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**

@@ -1,8 +1,8 @@
 package com.sunzequn.af.prepare;
 
+import com.sunzequn.af.common.CONF;
 import com.sunzequn.af.utils.*;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 

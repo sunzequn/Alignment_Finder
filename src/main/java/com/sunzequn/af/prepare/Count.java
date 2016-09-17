@@ -1,5 +1,6 @@
 package com.sunzequn.af.prepare;
 
+import com.sunzequn.af.common.CONF;
 import com.sunzequn.af.utils.ReadUtil;
 
 /**

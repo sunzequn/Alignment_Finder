@@ -1,5 +1,7 @@
 package com.sunzequn.af.prepare;
 
+import com.sunzequn.af.common.CONF;
+import com.sunzequn.af.common.IdSet;
 import com.sunzequn.af.utils.ParseUtil;
 import com.sunzequn.af.utils.WriteUtil;
 import org.apache.commons.io.FileUtils;
@@ -13,7 +15,7 @@ import java.io.File;
 public class LinkedInstance2Id {
 
     public static void main(String[] args) throws Exception {
-        IDSET.load();
+        IdSet.load();
         LineIterator it = FileUtils.lineIterator(new File(CONF.SAME_AS_FILE), "utf-8");
         WriteUtil writeUtil = new WriteUtil(CONF.SAME_AS_FILE_BY_ID, false);
         int num = 0;
@@ -21,8 +23,8 @@ public class LinkedInstance2Id {
             String line = it.nextLine();
             Triple triple = ParseUtil.parseLine(line);
             //s是Dbpedia, o是GeoNames
-            String dbpediaUriId = IDSET.dbpediaIdUri.get(triple.getS());
-            String geonamesUriId = IDSET.geonamesIdUri.get(triple.getO());
+            String dbpediaUriId = IdSet.dbpediaIdUri.get(triple.getS());
+            String geonamesUriId = IdSet.geonamesIdUri.get(triple.getO());
             if (dbpediaUriId == null || geonamesUriId == null) {
                 System.out.println("获取id失败");
                 num++;
