@@ -1,16 +1,24 @@
 package com.sunzequn.af.utils;
 
-import com.sunzequn.af.common.CONF;
-import com.sunzequn.af.prepare.Triple;
+import com.sunzequn.af.common.Conf;
+import com.sunzequn.af.dao.Triple;
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by sloriac on 16-9-16.
  */
-public class ParseUtil {
+public class TripleUtil {
+
+    public static Map<String, Integer> getFrequencyPropValues(List<Triple> triples) {
+
+        return null;
+    }
 
     public static Triple parseLineId(String line) {
-        String[] params = line.split(CONF.SPLIT);
+        String[] params = line.split(Conf.SPLIT);
         if (params.length == 3) {
             return new Triple(params[0], params[1], params[2]);
         }

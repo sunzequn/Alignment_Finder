@@ -1,8 +1,9 @@
 package com.sunzequn.af.prepare;
 
-import com.sunzequn.af.common.CONF;
+import com.sunzequn.af.common.Conf;
+import com.sunzequn.af.dao.Triple;
 import com.sunzequn.af.utils.MapUtil;
-import com.sunzequn.af.utils.ParseUtil;
+import com.sunzequn.af.utils.TripleUtil;
 import com.sunzequn.af.utils.ReadUtil;
 import com.sunzequn.af.utils.WriteUtil;
 
@@ -18,10 +19,10 @@ import java.util.Map;
 public class FrequencyHandler {
 
     public static void main(String[] args) {
-        propFrequency(CONF.GEONAMES_CORE_TRIPLES_BY_ID, CONF.GEONAMES_FREQUENCY_PROP);
-        propFrequency(CONF.DBPEDIA_CORE_TRIPLES_BY_ID, CONF.DBPEDIA_FREQUENCY_PROP);
-        propValueFrequency(CONF.GEONAMES_CORE_TRIPLES_BY_ID, CONF.GEONAMES_FREQUENCY_PROP_VALUE);
-        propValueFrequency(CONF.DBPEDIA_CORE_TRIPLES_BY_ID, CONF.DBPEDIA_FREQUENCY_PROP_VALUE);
+        propFrequency(Conf.GEONAMES_CORE_TRIPLES_BY_ID, Conf.GEONAMES_FREQUENCY_PROP);
+        propFrequency(Conf.DBPEDIA_CORE_TRIPLES_BY_ID, Conf.DBPEDIA_FREQUENCY_PROP);
+        propValueFrequency(Conf.GEONAMES_CORE_TRIPLES_BY_ID, Conf.GEONAMES_FREQUENCY_PROP_VALUE);
+        propValueFrequency(Conf.DBPEDIA_CORE_TRIPLES_BY_ID, Conf.DBPEDIA_FREQUENCY_PROP_VALUE);
     }
 
     private static void propFrequency(String sourceFile, String targetFile) {
@@ -29,7 +30,7 @@ public class FrequencyHandler {
         Map<String, Integer> propFrequency = new HashMap<>();
         List<String> lines = readUtil.readByLine();
         for (String line : lines) {
-            Triple triple = ParseUtil.parseLineId(line);
+            Triple triple = TripleUtil.parseLineId(line);
             MapUtil.addValueNum(propFrequency, triple.getP());
         }
         toFile(propFrequency, targetFile);
@@ -40,7 +41,7 @@ public class FrequencyHandler {
         Map<String, Integer> propValueFrequency = new HashMap<>();
         List<String> lines = readUtil.readByLine();
         for (String line : lines) {
-            Triple triple = ParseUtil.parseLineId(line);
+            Triple triple = TripleUtil.parseLineId(line);
             MapUtil.addValueNum(propValueFrequency, triple.getP() + "_" + triple.getO());
         }
         toFile(propValueFrequency, targetFile);
@@ -51,7 +52,7 @@ public class FrequencyHandler {
         //先排序
         List<Map.Entry<String, Integer>> entries = MapUtil.sortMapByValue(map);
         for (Map.Entry<String, Integer> entry : entries) {
-            writeUtil.write(entry.getKey() + CONF.SPLIT + entry.getValue());
+            writeUtil.write(entry.getKey() + Conf.SPLIT + entry.getValue());
         }
         writeUtil.close();
     }

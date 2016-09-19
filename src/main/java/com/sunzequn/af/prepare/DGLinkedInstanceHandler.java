@@ -1,6 +1,7 @@
 package com.sunzequn.af.prepare;
 
-import com.sunzequn.af.common.CONF;
+import com.sunzequn.af.common.Conf;
+import com.sunzequn.af.dao.Triple;
 import com.sunzequn.af.utils.*;
 import org.apache.commons.io.FileUtils;
 import org.apache.jena.query.QuerySolution;
@@ -26,8 +27,8 @@ public class DGLinkedInstanceHandler {
     private static String urlSuffix;
 
     private static Query query = new Query();
-    private static WriteUtil dbpediaWriteUtil = new WriteUtil(CONF.DBPEDIA_CORE_TRIPLES, false);
-    private static WriteUtil geonamesWriteUtil = new WriteUtil(CONF.GEONAMES_CORE_TRIPLES, false);
+    private static WriteUtil dbpediaWriteUtil = new WriteUtil(Conf.DBPEDIA_CORE_TRIPLES, false);
+    private static WriteUtil geonamesWriteUtil = new WriteUtil(Conf.GEONAMES_CORE_TRIPLES, false);
 
     public static void main(String[] args) throws Exception {
         init();
@@ -37,18 +38,18 @@ public class DGLinkedInstanceHandler {
     }
 
     private static void init() {
-        PropertiesUtil propertiesUtil = new PropertiesUtil(CONF.VIRTUOSO_CONF);
+        PropertiesUtil propertiesUtil = new PropertiesUtil(Conf.VIRTUOSO_CONF);
         geonamesBaseUrl = propertiesUtil.getValue("geonames.baseUrl");
         dbpediaBaseUrl = propertiesUtil.getValue("dbpedia.baseUrl");
         urlSuffix = propertiesUtil.getValue("url.suffix");
     }
 
     private static void process() throws Exception {
-        File file = new File(CONF.SAME_AS_FILE);
+        File file = new File(Conf.SAME_AS_FILE);
         List<String> lines = FileUtils.readLines(file, "utf-8");
         System.out.println("链接实例的数据量： " + lines.size());
         for (String line : lines) {
-            Triple triple = ParseUtil.parseLine(line);
+            Triple triple = TripleUtil.parseLine(line);
             String dbpediaUri = triple.getS();
             processData(dbpediaBaseUrl, DBPEDIA_CORE_GRAPH, dbpediaUri, dbpediaWriteUtil);
             String geonamesUri = triple.getO();

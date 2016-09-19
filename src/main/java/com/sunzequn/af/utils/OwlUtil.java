@@ -1,6 +1,6 @@
 package com.sunzequn.af.utils;
 
-import com.sunzequn.af.common.CONF;
+import com.sunzequn.af.common.Conf;
 import org.apache.jena.rdf.model.*;
 
 import java.io.FileInputStream;
@@ -76,7 +76,7 @@ public class OwlUtil {
     }
 
     public static void main(String[] args) throws Exception {
-        OwlUtil owlUtil = new OwlUtil(CONF.DBPEDIA_ONTOLOGY);
+        OwlUtil owlUtil = new OwlUtil(Conf.DBPEDIA_ONTOLOGY);
         String uri = "http://dbpedia.org/ontology/Organisation";
 //        System.out.println(owlUtil.getSuperestClass(uri).getURI());
 //        System.out.println(owlUtil.getSuperestClass("http://dbpedia.org/ontology/EducationalInstitution"));

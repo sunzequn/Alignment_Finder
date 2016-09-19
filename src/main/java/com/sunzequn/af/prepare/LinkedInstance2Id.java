@@ -1,8 +1,9 @@
 package com.sunzequn.af.prepare;
 
-import com.sunzequn.af.common.CONF;
+import com.sunzequn.af.common.Conf;
 import com.sunzequn.af.common.IdSet;
-import com.sunzequn.af.utils.ParseUtil;
+import com.sunzequn.af.dao.Triple;
+import com.sunzequn.af.utils.TripleUtil;
 import com.sunzequn.af.utils.WriteUtil;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
@@ -16,12 +17,12 @@ public class LinkedInstance2Id {
 
     public static void main(String[] args) throws Exception {
         IdSet.load();
-        LineIterator it = FileUtils.lineIterator(new File(CONF.SAME_AS_FILE), "utf-8");
-        WriteUtil writeUtil = new WriteUtil(CONF.SAME_AS_FILE_BY_ID, false);
+        LineIterator it = FileUtils.lineIterator(new File(Conf.SAME_AS_FILE), "utf-8");
+        WriteUtil writeUtil = new WriteUtil(Conf.SAME_AS_FILE_BY_ID, false);
         int num = 0;
         while (it.hasNext()) {
             String line = it.nextLine();
-            Triple triple = ParseUtil.parseLine(line);
+            Triple triple = TripleUtil.parseLine(line);
             //s是Dbpedia, o是GeoNames
             String dbpediaUriId = IdSet.dbpediaIdUri.get(triple.getS());
             String geonamesUriId = IdSet.geonamesIdUri.get(triple.getO());
@@ -29,7 +30,7 @@ public class LinkedInstance2Id {
                 System.out.println("获取id失败");
                 num++;
             } else {
-                writeUtil.write(dbpediaUriId + CONF.SPLIT + geonamesUriId);
+                writeUtil.write(dbpediaUriId + Conf.SPLIT + geonamesUriId);
             }
         }
         writeUtil.close();

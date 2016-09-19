@@ -1,6 +1,7 @@
 package com.sunzequn.af.prepare;
 
-import com.sunzequn.af.common.CONF;
+import com.sunzequn.af.common.Conf;
+import com.sunzequn.af.dao.Triple;
 import com.sunzequn.af.utils.SerializableUtil;
 import com.sunzequn.af.utils.TimeUtil;
 import com.sunzequn.af.utils.WriteUtil;
@@ -22,8 +23,8 @@ public class GenerateId {
     private static final int BATCH_SIZE = 50000;
 
     public static void main(String[] args) throws Exception {
-//        handleFiles(CONF.GEONAMES_CORE_TRIPLES, CONF.GEONAMES_ID_URI, CONF.GEONAMES_ID_PROP, CONF.GEONAMES_ID_LITERAL, CONF.GEONAMES_ID_PREFIX_URI, CONF.GEONAMES_ID_PREFIX_PROP, CONF.GEONAMES_ID_PREFIX_LITERAL);
-        handleFiles(CONF.DBPEDIA_CORE_TRIPLES, CONF.DBPEDIA_ID_URI, CONF.DBPEDIA_ID_PROP, CONF.DBPEDIA_ID_LITERAL, CONF.DBPEDIA_ID_PREFIX_URI, CONF.DBPEDIA_ID_PREFIX_PROP, CONF.DBPEDIA_ID_PREFIX_LITERAL);
+//        handleFiles(Conf.GEONAMES_CORE_TRIPLES, Conf.GEONAMES_ID_URI, Conf.GEONAMES_ID_PROP, Conf.GEONAMES_ID_LITERAL, Conf.GEONAMES_ID_PREFIX_URI, Conf.GEONAMES_ID_PREFIX_PROP, Conf.GEONAMES_ID_PREFIX_LITERAL);
+        handleFiles(Conf.DBPEDIA_CORE_TRIPLES, Conf.DBPEDIA_ID_URI, Conf.DBPEDIA_ID_PROP, Conf.DBPEDIA_ID_LITERAL, Conf.DBPEDIA_ID_PREFIX_URI, Conf.DBPEDIA_ID_PREFIX_PROP, Conf.DBPEDIA_ID_PREFIX_LITERAL);
     }
 
     private static void handleFiles(String file, String fid, String fprop, String fliteral, String uriPrefix, String propPrefix, String literalPrefix) throws Exception {
@@ -56,13 +57,13 @@ public class GenerateId {
 
         TimeUtil.start();
         //处理uri的id
-        toFile(uris, fid, uriPrefix, CONF.SPLIT, BATCH_SIZE);
+        toFile(uris, fid, uriPrefix, Conf.SPLIT, BATCH_SIZE);
 
         //处理prop的id
-        toFile(props, fprop, propPrefix, CONF.SPLIT, BATCH_SIZE);
+        toFile(props, fprop, propPrefix, Conf.SPLIT, BATCH_SIZE);
 
         //处理literal的id
-        toFile(literals, fliteral, literalPrefix, CONF.SPLIT, BATCH_SIZE);
+        toFile(literals, fliteral, literalPrefix, Conf.SPLIT, BATCH_SIZE);
 
         TimeUtil.print();
     }

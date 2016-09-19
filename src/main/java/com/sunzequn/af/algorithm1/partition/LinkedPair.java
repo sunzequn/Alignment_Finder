@@ -1,8 +1,7 @@
 package com.sunzequn.af.algorithm1.partition;
 
-import com.sunzequn.af.prepare.Triple;
-
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by sloriac on 16-9-17.
@@ -11,10 +10,10 @@ public class LinkedPair {
 
     private String targetInstanceId;
     private String sourceInstanceId;
-    private List<Triple> targetFacts;
-    private List<Triple> sourceFacts;
+    private Map<String, List<String[]>> targetFacts;
+    private Map<String, List<String[]>> sourceFacts;
 
-    public LinkedPair(String targetInstanceId, String sourceInstanceId, List<Triple> targetFacts, List<Triple> sourceFacts) {
+    public LinkedPair(String targetInstanceId, String sourceInstanceId, Map<String, List<String[]>> targetFacts, Map<String, List<String[]>> sourceFacts) {
         this.targetInstanceId = targetInstanceId;
         this.sourceInstanceId = sourceInstanceId;
         this.targetFacts = targetFacts;
@@ -37,19 +36,19 @@ public class LinkedPair {
         this.sourceInstanceId = sourceInstanceId;
     }
 
-    public List<Triple> getTargetFacts() {
+    public Map<String, List<String[]>> getTargetFacts() {
         return targetFacts;
     }
 
-    public void setTargetFacts(List<Triple> targetFacts) {
+    public void setTargetFacts(Map<String, List<String[]>> targetFacts) {
         this.targetFacts = targetFacts;
     }
 
-    public List<Triple> getSourceFacts() {
+    public Map<String, List<String[]>> getSourceFacts() {
         return sourceFacts;
     }
 
-    public void setSourceFacts(List<Triple> sourceFacts) {
+    public void setSourceFacts(Map<String, List<String[]>> sourceFacts) {
         this.sourceFacts = sourceFacts;
     }
 

@@ -26,13 +26,13 @@ public class IdSet {
 
     public static void load() throws Exception {
 
-        geonamesIdUri = loadId(CONF.GEONAMES_ID_URI);
-        geonamesIdProp = loadId(CONF.GEONAMES_ID_PROP);
-        geonamesIdLiteral = loadId(CONF.GEONAMES_ID_LITERAL);
+        geonamesIdUri = loadId(Conf.GEONAMES_ID_URI);
+        geonamesIdProp = loadId(Conf.GEONAMES_ID_PROP);
+        geonamesIdLiteral = loadId(Conf.GEONAMES_ID_LITERAL);
 
-        dbpediaIdUri = loadId(CONF.DBPEDIA_ID_URI);
-        dbpediaIdProp = loadId(CONF.DBPEDIA_ID_PROP);
-        dbpediaIdLiteral = loadId(CONF.DBPEDIA_ID_LITERAL);
+        dbpediaIdUri = loadId(Conf.DBPEDIA_ID_URI);
+        dbpediaIdProp = loadId(Conf.DBPEDIA_ID_PROP);
+        dbpediaIdLiteral = loadId(Conf.DBPEDIA_ID_LITERAL);
 
     }
 
@@ -42,7 +42,7 @@ public class IdSet {
         ReadUtil readUtil = new ReadUtil(file);
         List<String> lines = readUtil.readByLine();
         for (String line : lines) {
-            String[] params = line.split(CONF.SPLIT);
+            String[] params = line.split(Conf.SPLIT);
             ids.put((String) SerializableUtil.str2Object(params[1]), params[0]);
         }
         System.out.println(ids.size());

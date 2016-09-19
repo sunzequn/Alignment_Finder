@@ -29,4 +29,8 @@ public class TimeUtil {
     public static void print() {
         System.out.println("cost: " + duration() + " milliseconds");
     }
+
+    public static void print(String message) {
+        System.out.println(message + " cost: " + duration() + " milliseconds");
+    }
 }

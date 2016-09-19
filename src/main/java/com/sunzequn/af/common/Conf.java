@@ -3,7 +3,7 @@ package com.sunzequn.af.common;
 /**
  * Created by sloriac on 16-9-5.
  */
-public class CONF {
+public class Conf {
 
     public static final String SPLIT = "\t";
 
@@ -45,5 +45,8 @@ public class CONF {
     public static final String GEONAMES_ID_PREFIX_URI = "G.U.";
     public static final String GEONAMES_ID_PREFIX_PROP = "G.P.";
     public static final String GEONAMES_ID_PREFIX_LITERAL = "G.L.";
+
+    public static final String DBPEDIA_TRIPLES_TABLE = "d_triples";
+    public static final String GEONAMES_TRIPLES_TABLE = "g_triples";
 
 }

@@ -1,5 +1,7 @@
-package com.sunzequn.af.common;
+package com.sunzequn.af.algorithm1.load_file;
 
+import com.sunzequn.af.common.Conf;
+import com.sunzequn.af.common.Threshold;
 import com.sunzequn.af.utils.ReadUtil;
 
 import java.util.*;
@@ -17,12 +19,16 @@ public class TargetRelations {
         ReadUtil readUtil = new ReadUtil(propFrequencyFile);
         List<String> lines = readUtil.readByLine();
         for (String line : lines) {
-            String[] params = line.split(CONF.SPLIT);
+            String[] params = line.split(Conf.SPLIT);
             if (Integer.parseInt(params[1]) >= Threshold.PROP_FREQUENCY) {
                 propFrequencies.add(params);
             }
         }
         System.out.println("待处理的关系数：" + propFrequencies.size());
+    }
+
+    public boolean isEmpty() {
+        return propFrequencies.isEmpty();
     }
 
     /**
