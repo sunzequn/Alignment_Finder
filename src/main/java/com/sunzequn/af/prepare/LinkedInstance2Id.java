@@ -2,7 +2,6 @@ package com.sunzequn.af.prepare;
 
 import com.sunzequn.af.common.Conf;
 import com.sunzequn.af.common.IdSet;
-import com.sunzequn.af.db.Triple;
 import com.sunzequn.af.utils.TripleUtil;
 import com.sunzequn.af.utils.WriteUtil;
 import org.apache.commons.io.FileUtils;

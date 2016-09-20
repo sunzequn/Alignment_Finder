@@ -1,7 +1,6 @@
 package com.sunzequn.af.prepare;
 
 import com.sunzequn.af.common.Conf;
-import com.sunzequn.af.db.Triple;
 import com.sunzequn.af.utils.MapUtil;
 import com.sunzequn.af.utils.TripleUtil;
 import com.sunzequn.af.utils.ReadUtil;
@@ -19,9 +18,9 @@ import java.util.Map;
 public class FrequencyHandler {
 
     public static void main(String[] args) {
-        propFrequency(Conf.GEONAMES_CORE_TRIPLES_BY_ID, Conf.GEONAMES_FREQUENCY_PROP);
+//        propFrequency(Conf.GEONAMES_CORE_TRIPLES_BY_ID, Conf.GEONAMES_FREQUENCY_PROP);
         propFrequency(Conf.DBPEDIA_CORE_TRIPLES_BY_ID, Conf.DBPEDIA_FREQUENCY_PROP);
-        propValueFrequency(Conf.GEONAMES_CORE_TRIPLES_BY_ID, Conf.GEONAMES_FREQUENCY_PROP_VALUE);
+//        propValueFrequency(Conf.GEONAMES_CORE_TRIPLES_BY_ID, Conf.GEONAMES_FREQUENCY_PROP_VALUE);
         propValueFrequency(Conf.DBPEDIA_CORE_TRIPLES_BY_ID, Conf.DBPEDIA_FREQUENCY_PROP_VALUE);
     }
 

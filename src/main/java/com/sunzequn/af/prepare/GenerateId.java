@@ -1,7 +1,6 @@
 package com.sunzequn.af.prepare;
 
 import com.sunzequn.af.common.Conf;
-import com.sunzequn.af.db.Triple;
 import com.sunzequn.af.utils.SerializableUtil;
 import com.sunzequn.af.utils.TimeUtil;
 import com.sunzequn.af.utils.WriteUtil;
@@ -41,7 +40,14 @@ public class GenerateId {
             uris.add(t.getS());
             props.add(t.getP());
             if (t.getO().startsWith("http://")) {
-                uris.add(t.getO());
+                //解决dbpedia　type中的很多其他数据集的class
+                if (t.getP().equals("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")) {
+                    if (t.getO().startsWith("http://dbpedia.org/ontology")) {
+                        uris.add(t.getO());
+                    }
+                } else {
+                    uris.add(t.getO());
+                }
             } else {
                 literals.add(t.getO());
             }

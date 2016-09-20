@@ -3,7 +3,6 @@ package com.sunzequn.af.prepare;
 
 import com.sunzequn.af.common.Conf;
 import com.sunzequn.af.common.IdSet;
-import com.sunzequn.af.db.Triple;
 import com.sunzequn.af.utils.SerializableUtil;
 import com.sunzequn.af.utils.TimeUtil;
 import com.sunzequn.af.utils.WriteUtil;
@@ -34,6 +33,9 @@ public class Triples2Id {
         while (it.hasNext()) {
             String line = it.nextLine();
             Triple t = (Triple) SerializableUtil.str2Object(line);
+            if (t.getP().equals("http://www.w3.org/1999/02/22-rdf-syntax-ns#type") && (!t.getO().startsWith("http://dbpedia.org/ontology"))) {
+                continue;
+            }
             String sid = idUri.get(t.getS());
             String pid = idProp.get(t.getP());
             String oid;

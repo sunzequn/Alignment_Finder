@@ -1,8 +1,6 @@
 package com.sunzequn.af.utils;
 
 import java.io.*;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
 import java.util.Base64;
 
 /**

@@ -1,7 +1,7 @@
 package com.sunzequn.af.utils;
 
 import com.sunzequn.af.common.Conf;
-import com.sunzequn.af.db.Triple;
+import com.sunzequn.af.prepare.Triple;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashMap;

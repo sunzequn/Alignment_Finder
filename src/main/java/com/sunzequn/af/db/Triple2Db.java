@@ -1,6 +1,7 @@
 package com.sunzequn.af.db;
 
 import com.sunzequn.af.common.Conf;
+import com.sunzequn.af.prepare.Triple;
 import com.sunzequn.af.utils.TripleUtil;
 import com.sunzequn.af.utils.ReadUtil;
 import com.sunzequn.af.utils.TimeUtil;

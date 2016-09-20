@@ -1,6 +1,5 @@
 package com.sunzequn.af.db;
 
-import com.sun.org.apache.bcel.internal.generic.LSHL;
 import com.sunzequn.af.common.Conf;
 import com.sunzequn.af.utils.ReadUtil;
 import com.sunzequn.af.utils.SerializableUtil;
@@ -10,6 +9,8 @@ import java.util.List;
 
 /**
  * Created by sloriac on 16-9-20.
+ *
+ * 将id写入数据库
  */
 public class Id2Db {
 

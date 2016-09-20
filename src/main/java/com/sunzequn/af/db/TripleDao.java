@@ -1,5 +1,7 @@
 package com.sunzequn.af.db;
 
+import com.sunzequn.af.prepare.Triple;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
