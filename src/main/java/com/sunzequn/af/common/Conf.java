@@ -52,10 +52,20 @@ public class Conf {
     public static final String GEONAMES_ID_PREFIX_PROP = "G.P.";
     public static final String GEONAMES_ID_PREFIX_LITERAL = "G.L.";
 
-    public static final String DBPEDIA_TRIPLES_TABLE = "d_triples";
-    public static final String GEONAMES_TRIPLES_TABLE = "g_triples";
+    public static final String DBPEDIA_TABLE_TRIPLES = "d_triples";
+    public static final String GEONAMES_TABLE_TRIPLES = "g_triples";
 
-    public static final String DBPEDIA_FREQUENCY_TABLE = "d_frequency";
-    public static final String GEONAMES_FREQUENCY_TABLE = "g_frequency";
+    public static final String DBPEDIA_TABLE_FREQUENCY = "d_frequency";
+    public static final String GEONAMES_TABLE_FREQUENCY = "g_frequency";
+
+    public static final String GEONAMES_TABLE_ID_URI = "g_id_uri";
+    public static final String GEONAMES_TABLE_ID_PROP = "g_id_prop";
+    public static final String GEONAMES_TABLE_ID_LITERAL = "g_id_literal";
+
+    public static final String DBPEDIA_TABLE_ID_URI = "d_id_uri";
+    public static final String DBPEDIA_TABLE_ID_PROP = "d_id_prop";
+    public static final String DBPEDIA_TABLE_ID_LITERAL = "d_id_literal";
+
+
 
 }

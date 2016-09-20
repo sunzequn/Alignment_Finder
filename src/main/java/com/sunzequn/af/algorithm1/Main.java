@@ -19,9 +19,11 @@ public class Main {
             //对每一个属性构造block
             Double score = Double.parseDouble(relation[1]);
             TimeUtil.start();
+            System.out.println("为 " + propId + " 构造Block: ");
             Block block = new Block(propId, score);
             block.init();
-            TimeUtil.print("为 " + propId + " 构造Block ");
+            TimeUtil.print();
+            System.out.println();
         }
 
     }

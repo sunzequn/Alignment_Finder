@@ -24,7 +24,7 @@ class TargetRelations {
                 propFrequencies.add(params);
             }
         }
-        System.out.println("待处理的关系数：" + propFrequencies.size());
+        System.out.println("待处理的关系数：" + propFrequencies.size() + "\n");
     }
 
     boolean isEmpty() {

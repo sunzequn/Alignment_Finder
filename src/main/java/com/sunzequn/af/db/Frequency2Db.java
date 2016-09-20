@@ -16,8 +16,8 @@ public class Frequency2Db {
 
 
     public static void main(String[] args) {
-//        toDb(Conf.GEONAMES_FREQUENCY_PROP_VALUE, Conf.GEONAMES_FREQUENCY_TABLE);
-        toDb(Conf.DBPEDIA_FREQUENCY_PROP_VALUE, Conf.DBPEDIA_FREQUENCY_TABLE);
+//        toDb(Conf.GEONAMES_FREQUENCY_PROP_VALUE, Conf.GEONAMES_TABLE_FREQUENCY);
+        toDb(Conf.DBPEDIA_FREQUENCY_PROP_VALUE, Conf.DBPEDIA_TABLE_FREQUENCY);
     }
 
     private static void toDb(String triplesFile, String table) {

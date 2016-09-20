@@ -29,7 +29,6 @@ class Block {
         if (targetFrequencies != null) {
             System.out.println("相关属性值对数量：" + targetFrequencies.size());
             //得到相关的属性值频数对
-
         }
 
     }
