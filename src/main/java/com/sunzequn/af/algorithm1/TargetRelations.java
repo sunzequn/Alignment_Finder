@@ -11,23 +11,23 @@ import java.util.*;
  * <p>
  * 目标关系，也就是Horn子句左侧部分
  */
-public class TargetRelations {
+class TargetRelations {
 
     private LinkedList<String[]> propFrequencies = new LinkedList<>();
 
-    public TargetRelations(String propFrequencyFile) {
+    TargetRelations(String propFrequencyFile) {
         ReadUtil readUtil = new ReadUtil(propFrequencyFile);
         List<String> lines = readUtil.readByLine();
         for (String line : lines) {
             String[] params = line.split(Conf.SPLIT);
-            if (Integer.parseInt(params[1]) >= Threshold.PROP_FREQUENCY) {
+            if (Double.parseDouble(params[1]) >= Threshold.PROP_SCORE) {
                 propFrequencies.add(params);
             }
         }
         System.out.println("待处理的关系数：" + propFrequencies.size());
     }
 
-    public boolean isEmpty() {
+    boolean isEmpty() {
         return propFrequencies.isEmpty();
     }
 
@@ -36,7 +36,7 @@ public class TargetRelations {
      *
      * @return
      */
-    public String[] popRelation() {
+    String[] popRelation() {
         if (propFrequencies.isEmpty())
             return null;
         return propFrequencies.pop();

@@ -12,18 +12,18 @@ import java.util.List;
  * <p>
  * 针对一个属性
  */
-public class Block {
+class Block {
     //目标属性
     private String targetPropId;
-    private int frequency;
+    private double score;
     private List<SubBlock> subBlocks = new ArrayList<>();
 
-    public Block(String targetPropId, int frequency) {
+    Block(String targetPropId, double score) {
         this.targetPropId = targetPropId;
-        this.frequency = frequency;
+        this.score = score;
     }
 
-    public void init() {
+    void init() {
         FrequencyDao targetFrequencyDao = new FrequencyDao(Constant.TARGET_FREQUENCY_TABLE);
         List<Frequency> targetFrequencies = targetFrequencyDao.getByProp(targetPropId);
         if (targetFrequencies != null) {
@@ -34,15 +34,5 @@ public class Block {
 
     }
 
-    public String getTargetPropId() {
-        return targetPropId;
-    }
 
-    public int getFrequency() {
-        return frequency;
-    }
-
-    public List<SubBlock> getSubBlocks() {
-        return subBlocks;
-    }
 }

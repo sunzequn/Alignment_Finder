@@ -11,15 +11,15 @@ public class Main {
     public static void main(String[] args) {
 
         //从文件加载target属性频数
-        TargetRelations targetRelations = new TargetRelations(Constant.TARGET_PROP_FREQUENCY_FILE);
+        TargetRelations targetRelations = new TargetRelations(Constant.TARGET_PROP_FILE);
 
         while (!targetRelations.isEmpty()) {
             String[] relation = targetRelations.popRelation();
             String propId = relation[0];
             //对每一个属性构造block
-            int frequency = Integer.parseInt(relation[1]);
+            Double score = Double.parseDouble(relation[1]);
             TimeUtil.start();
-            Block block = new Block(propId, frequency);
+            Block block = new Block(propId, score);
             block.init();
             TimeUtil.print("为 " + propId + " 构造Block ");
         }
