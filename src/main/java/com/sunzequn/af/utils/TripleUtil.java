@@ -1,9 +1,10 @@
 package com.sunzequn.af.utils;
 
 import com.sunzequn.af.common.Conf;
-import com.sunzequn.af.dao.Triple;
+import com.sunzequn.af.db.Triple;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,9 +13,17 @@ import java.util.Map;
  */
 public class TripleUtil {
 
-    public static Map<String, Integer> getFrequencyPropValues(List<Triple> triples) {
-
-        return null;
+    public static Map<String, Integer> getFrequencyPropValues(List<Triple> triples, int threshold) {
+        Map<String, Integer> propValuesMap = new HashMap<>();
+        for (Triple triple : triples) {
+            String key = triple.getP() + "_" + triple.getO();
+            MapUtil.addValueNum(propValuesMap, key);
+        }
+        Map<String, Integer> temp = new HashMap<>();
+        propValuesMap.entrySet().stream().filter(entry -> entry.getValue() > threshold).forEach(entry -> {
+            temp.put(entry.getKey(), entry.getValue());
+        });
+        return temp.size() > 0 ? temp : null;
     }
 
     public static Triple parseLineId(String line) {

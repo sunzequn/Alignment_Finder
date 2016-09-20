@@ -1,4 +1,4 @@
-package com.sunzequn.af.algorithm1.load_file;
+package com.sunzequn.af.algorithm1;
 
 import com.sunzequn.af.common.Conf;
 import com.sunzequn.af.common.Threshold;

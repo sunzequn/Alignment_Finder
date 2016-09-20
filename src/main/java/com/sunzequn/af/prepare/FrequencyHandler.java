@@ -1,7 +1,7 @@
 package com.sunzequn.af.prepare;
 
 import com.sunzequn.af.common.Conf;
-import com.sunzequn.af.dao.Triple;
+import com.sunzequn.af.db.Triple;
 import com.sunzequn.af.utils.MapUtil;
 import com.sunzequn.af.utils.TripleUtil;
 import com.sunzequn.af.utils.ReadUtil;

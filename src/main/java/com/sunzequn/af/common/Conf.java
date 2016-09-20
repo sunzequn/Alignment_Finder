@@ -37,6 +37,12 @@ public class Conf {
     public static final String DBPEDIA_FREQUENCY_PROP_VALUE = "/home/sloriac/code/Alignment_Finder/data/frequency/dbpedia_frequency_prop_value";
     public static final String GEONAMES_FREQUENCY_PROP_VALUE = "/home/sloriac/code/Alignment_Finder/data/frequency/geonames_frequency_prop_value";
 
+    //frequency
+    public static final String DBPEDIA_PROP_RANGE = "/home/sloriac/code/Alignment_Finder/data/frequency/dbpedia_prop_range";
+    public static final String GEONAMES_PROP_RANGE = "/home/sloriac/code/Alignment_Finder/data/frequency/geonames_prop_range";
+    public static final String DBPEDIA_PROP_SCORE = "/home/sloriac/code/Alignment_Finder/data/frequency/dbpedia_prop_score";
+    public static final String GEONAMES_PROP_SCORE = "/home/sloriac/code/Alignment_Finder/data/frequency/geonames_prop_score";
+
     //id前缀
     public static final String DBPEDIA_ID_PREFIX_URI = "D.U.";
     public static final String DBPEDIA_ID_PREFIX_PROP = "D.P.";
@@ -48,5 +54,8 @@ public class Conf {
 
     public static final String DBPEDIA_TRIPLES_TABLE = "d_triples";
     public static final String GEONAMES_TRIPLES_TABLE = "g_triples";
+
+    public static final String DBPEDIA_FREQUENCY_TABLE = "d_frequency";
+    public static final String GEONAMES_FREQUENCY_TABLE = "g_frequency";
 
 }

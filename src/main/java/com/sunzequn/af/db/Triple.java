@@ -1,4 +1,4 @@
-package com.sunzequn.af.dao;
+package com.sunzequn.af.db;
 
 import java.io.Serializable;
 

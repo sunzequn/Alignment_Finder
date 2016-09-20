@@ -1,4 +1,4 @@
-package com.sunzequn.af.algorithm1.partition;
+package com.sunzequn.af.algorithm1;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.sunzequn.af.dao;
+package com.sunzequn.af.db;
 
 import com.sunzequn.af.common.Conf;
 import com.sunzequn.af.utils.TripleUtil;

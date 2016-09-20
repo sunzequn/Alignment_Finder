@@ -1,4 +1,4 @@
-package com.sunzequn.af.dao;
+package com.sunzequn.af.db;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -15,7 +15,7 @@ public class BaseDao {
 
 
     private static final String CLASS_NAME = "com.mysql.cj.jdbc.Driver";
-    private static final String JDBC_URL_PREFIX = "jdbc:mysql://localhost:3306/alignment_finder";
+    private static final String JDBC_URL_PREFIX = "jdbc:mysql://localhost:3306/alignment_finder?useUnicode=true&characterEncoding=utf-8&useSSL=false";
     private static final String JDBC_URL_SUFFIX = "?useUnicode=true";
     private static final String USER = "root";
     private static final String PASSWORD = "root";

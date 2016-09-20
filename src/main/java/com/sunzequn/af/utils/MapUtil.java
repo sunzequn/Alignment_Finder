@@ -26,4 +26,21 @@ public class MapUtil {
         return entries;
     }
 
+    public static List<Map.Entry<String, Double>> sortMapByDoubleValue(Map<String, Double> oriMap) {
+        if (oriMap == null || oriMap.isEmpty()) {
+            return null;
+        }
+        List<Map.Entry<String, Double>> entries = new ArrayList<>(oriMap.entrySet());
+        Collections.sort(entries, (o1, o2) -> {
+            double res = o2.getValue() - o1.getValue();
+            if (res > 0)
+                return 1;
+            else if (res < 0)
+                return -1;
+            else
+                return 0;
+        });
+        return entries;
+    }
+
 }
