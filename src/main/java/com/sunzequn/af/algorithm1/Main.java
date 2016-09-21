@@ -3,13 +3,15 @@ package com.sunzequn.af.algorithm1;
 import com.sunzequn.af.common.Constant;
 import com.sunzequn.af.utils.TimeUtil;
 
+import java.util.Map;
+
 /**
  * Created by sloriac on 16-9-18.
  */
 public class Main {
 
     public static void main(String[] args) {
-
+        Map<String, String> matchedInstances = Constant.matchedInstances;
         //从文件加载target属性频数
         TargetRelations targetRelations = new TargetRelations(Constant.TARGET_PROP_FILE);
 

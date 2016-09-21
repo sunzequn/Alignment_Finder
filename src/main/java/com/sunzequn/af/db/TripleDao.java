@@ -42,6 +42,13 @@ public class TripleDao extends BaseDao {
         return query(connection, sql, params, Triple.class);
     }
 
+
+    public List<Triple> getByPV(String p, String v) {
+        String sql = "select * from " + table + " where p = ? and o = ?";
+        Object[] params = {p, v};
+        return query(connection, sql, params, Triple.class);
+    }
+
     public void close() {
         try {
             connection.close();

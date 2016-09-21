@@ -1,64 +1,60 @@
 package com.sunzequn.af.algorithm1;
 
+import com.sunzequn.af.common.Constant;
+import com.sunzequn.af.db.TripleDao;
+import com.sunzequn.af.prepare.Triple;
+
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
  * Created by sloriac on 16-9-17.
  */
-public class LinkedPair {
+class LinkedPair {
 
     private String targetInstanceId;
     private String sourceInstanceId;
-    private Map<String, List<String[]>> targetFacts;
-    private Map<String, List<String[]>> sourceFacts;
+    private Map<String, String> targetFacts = new HashMap<>();
+    private Map<String, String> sourceFacts = new HashMap<>();
 
-    public LinkedPair(String targetInstanceId, String sourceInstanceId, Map<String, List<String[]>> targetFacts, Map<String, List<String[]>> sourceFacts) {
+    LinkedPair(String targetInstanceId, String sourceInstanceId) {
         this.targetInstanceId = targetInstanceId;
         this.sourceInstanceId = sourceInstanceId;
-        this.targetFacts = targetFacts;
-        this.sourceFacts = sourceFacts;
+    }
+
+    void init() {
+        TripleDao targetTripleDao = new TripleDao(Constant.TARGET_TRIPLES_TABLE);
+        TripleDao sourceTripleDao = new TripleDao(Constant.SOURCE_TRIPLES_TABLE);
+        List<Triple> targetRelatedTriples = targetTripleDao.getByS(targetInstanceId);
+        List<Triple> sourceRelatedTriples = sourceTripleDao.getByS(sourceInstanceId);
+        if (targetRelatedTriples == null || sourceRelatedTriples == null) {
+            System.out.println(targetInstanceId + " " + sourceInstanceId);
+            return;
+        }
+        targetTripleDao.close();
+        sourceTripleDao.close();
+        for (Triple targetRelatedTriple : targetRelatedTriples) {
+            targetFacts.put(targetRelatedTriple.getP(), targetRelatedTriple.getO());
+        }
+        for (Triple sourceRelatedTriple : sourceRelatedTriples) {
+            sourceFacts.put(sourceRelatedTriple.getP(), sourceRelatedTriple.getO());
+        }
     }
 
     public String getTargetInstanceId() {
         return targetInstanceId;
     }
 
-    public void setTargetInstanceId(String targetInstanceId) {
-        this.targetInstanceId = targetInstanceId;
-    }
-
     public String getSourceInstanceId() {
         return sourceInstanceId;
     }
 
-    public void setSourceInstanceId(String sourceInstanceId) {
-        this.sourceInstanceId = sourceInstanceId;
-    }
-
-    public Map<String, List<String[]>> getTargetFacts() {
+    public Map<String, String> getTargetFacts() {
         return targetFacts;
     }
 
-    public void setTargetFacts(Map<String, List<String[]>> targetFacts) {
-        this.targetFacts = targetFacts;
-    }
-
-    public Map<String, List<String[]>> getSourceFacts() {
+    public Map<String, String> getSourceFacts() {
         return sourceFacts;
-    }
-
-    public void setSourceFacts(Map<String, List<String[]>> sourceFacts) {
-        this.sourceFacts = sourceFacts;
-    }
-
-    @Override
-    public String toString() {
-        return "LinkedPair{" +
-                "targetInstanceId='" + targetInstanceId + '\'' +
-                ", sourceInstanceId='" + sourceInstanceId + '\'' +
-                ", targetFacts=" + targetFacts +
-                ", sourceFacts=" + sourceFacts +
-                '}';
     }
 }
