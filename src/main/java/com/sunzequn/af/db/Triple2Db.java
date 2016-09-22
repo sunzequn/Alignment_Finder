@@ -15,7 +15,7 @@ import java.util.List;
 public class Triple2Db {
 
     public static void main(String[] args) {
-//        toDb(Conf.GEONAMES_CORE_TRIPLES_BY_ID, "g_triples");
+        toDb(Conf.GEONAMES_CORE_TRIPLES_BY_ID, "g_triples");
         toDb(Conf.DBPEDIA_CORE_TRIPLES_BY_ID, "d_triples");
     }
 
@@ -30,7 +30,6 @@ public class Triple2Db {
             Triple triple = TripleUtil.parseLineId(line);
             triples.add(triple);
             if (triples.size() == batchNum) {
-                System.out.println(triples.size());
                 tripleDao.addBatch(triples);
                 triples = new ArrayList<>();
             }

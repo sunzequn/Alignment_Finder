@@ -6,9 +6,9 @@ package com.sunzequn.af.common;
 public class Threshold {
 
     //属性值对的频数最小值
-    public static final int PROP_VALUE_FREQUENCY = 1000;
+    public static final int PROP_VALUE_FREQUENCY = 1;
     //属性打分的最小值
-    public static final int PROP_SCORE = 100;
+    public static final int PROP_SCORE = 1;
 
 
 }

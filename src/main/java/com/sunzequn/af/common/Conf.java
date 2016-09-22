@@ -66,6 +66,6 @@ public class Conf {
     public static final String DBPEDIA_TABLE_ID_PROP = "d_id_prop";
     public static final String DBPEDIA_TABLE_ID_LITERAL = "d_id_literal";
 
-
-
+    public static final String BLOCK = "/home/sloriac/code/Alignment_Finder/data/out/block";
+    
 }

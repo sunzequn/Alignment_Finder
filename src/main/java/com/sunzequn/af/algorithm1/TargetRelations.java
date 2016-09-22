@@ -4,6 +4,7 @@ import com.sunzequn.af.common.Conf;
 import com.sunzequn.af.common.Threshold;
 import com.sunzequn.af.utils.ReadUtil;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -11,7 +12,7 @@ import java.util.*;
  * <p>
  * 目标关系，也就是Horn子句左侧部分
  */
-class TargetRelations {
+class TargetRelations implements Serializable {
 
     private LinkedList<String[]> propFrequencies = new LinkedList<>();
 
@@ -20,7 +21,7 @@ class TargetRelations {
         List<String> lines = readUtil.readByLine();
         for (String line : lines) {
             String[] params = line.split(Conf.SPLIT);
-            if (Double.parseDouble(params[1]) >= Threshold.PROP_SCORE) {
+            if (Double.parseDouble(params[1]) > Threshold.PROP_SCORE) {
                 propFrequencies.add(params);
             }
         }

@@ -3,12 +3,13 @@ package com.sunzequn.af.algorithm1;
 import com.sunzequn.af.common.Conf;
 import com.sunzequn.af.utils.ReadUtil;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * Created by sloriac on 16-9-17.
  */
-public class RelatedFacts {
+public class RelatedFacts implements Serializable {
 
     //key是属性，value是一个二元组的list，０元是主语，１元是宾语
     private Map<String, List<String[]>> factsPSO = new HashMap<>();

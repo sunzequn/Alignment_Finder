@@ -1,9 +1,11 @@
 package com.sunzequn.af.db;
 
+import java.io.Serializable;
+
 /**
  * Created by sloriac on 16-9-20.
  */
-public class Id {
+public class Id implements Serializable {
     private String id;
     private String content;
 

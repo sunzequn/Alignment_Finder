@@ -5,6 +5,7 @@ import com.sunzequn.af.common.Threshold;
 import com.sunzequn.af.db.Frequency;
 import com.sunzequn.af.db.FrequencyDao;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  * <p>
  * 针对一个属性
  */
-class Block {
+class Block implements Serializable {
     //目标属性
     private String targetPropId;
     private double score;
@@ -25,17 +26,19 @@ class Block {
     }
 
     void init() {
-        FrequencyDao targetFrequencyDao = new FrequencyDao(Constant.TARGET_FREQUENCY_TABLE);
+
         //得到相关的属性值频数对
-        List<Frequency> targetFrequencies = targetFrequencyDao.getByProp(targetPropId);
-        targetFrequencyDao.close();
+        List<Frequency> targetFrequencies = Constant.targetFrequencyDao.getByProp(targetPropId);
         if (targetFrequencies != null) {
             final int[] num = {0};
             targetFrequencies.stream().filter(targetFrequency -> targetFrequency.getFrequency() > Threshold.PROP_VALUE_FREQUENCY).forEach(targetFrequency -> {
                 SubBlock subBlock = new SubBlock(targetFrequency.getProp(), targetFrequency.getValue(), targetFrequency.getFrequency());
+//                System.out.println("构造subBlock: " + targetFrequency.getProp() + " " + targetFrequency.getValue());
                 subBlock.init();
-                subBlocks.add(subBlock);
-                num[0]++;
+                if (subBlock.getLinkedPairs().size() > 0) {
+                    subBlocks.add(subBlock);
+                    num[0]++;
+                }
             });
             System.out.println("相关属性值对数量：" + num[0]);
         }

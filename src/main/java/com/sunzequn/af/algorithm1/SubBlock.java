@@ -1,9 +1,9 @@
 package com.sunzequn.af.algorithm1;
 
 import com.sunzequn.af.common.Constant;
-import com.sunzequn.af.db.TripleDao;
 import com.sunzequn.af.prepare.Triple;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -11,7 +11,7 @@ import java.util.*;
  *
  * 针对一个属性值对
  */
-class SubBlock {
+class SubBlock implements Serializable {
 
     //和Block的目标属性是一样的
     private String targetPropId;
@@ -26,9 +26,8 @@ class SubBlock {
     }
 
     void init() {
-        TripleDao targetTripleDao = new TripleDao(Constant.TARGET_TRIPLES_TABLE);
-        List<Triple> targetTriples = targetTripleDao.getByPV(targetPropId, targetPropValueId);
-        targetTripleDao.close();
+
+        List<Triple> targetTriples = Constant.targetTripleDao.getByPV(targetPropId, targetPropValueId);
         if (targetTriples != null) {
             Set<String> targetSubjects = new HashSet<>();
             for (Triple targetTriple : targetTriples) {
@@ -43,9 +42,11 @@ class SubBlock {
                 }
                 LinkedPair linkedPair = new LinkedPair(targetSubject, matchedSubject);
                 linkedPair.init();
-                linkedPairs.add(linkedPair);
+                if (linkedPair.getSourceFacts().size() > 0) {
+                    linkedPairs.add(linkedPair);
+                }
             }
-            System.out.println("符合pv对的链接实例对：" + linkedPairs.size());
+//            System.out.println("符合pv对的链接实例对：" + linkedPairs.size());
         }
     }
 

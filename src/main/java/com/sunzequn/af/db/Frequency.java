@@ -1,9 +1,11 @@
 package com.sunzequn.af.db;
 
+import java.io.Serializable;
+
 /**
  * Created by sloriac on 16-9-19.
  */
-public class Frequency {
+public class Frequency implements Serializable {
 
     private String prop;
     private String value;

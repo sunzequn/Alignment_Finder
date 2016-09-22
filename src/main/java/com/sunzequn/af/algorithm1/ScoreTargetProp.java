@@ -18,7 +18,7 @@ import java.util.Map;
 public class ScoreTargetProp {
 
     public static void main(String[] args) {
-//        generateScoreOfProp(Conf.GEONAMES_FREQUENCY_PROP, Conf.GEONAMES_PROP_RANGE, Conf.GEONAMES_PROP_SCORE);
+        generateScoreOfProp(Conf.GEONAMES_FREQUENCY_PROP, Conf.GEONAMES_PROP_RANGE, Conf.GEONAMES_PROP_SCORE);
         generateScoreOfProp(Conf.DBPEDIA_FREQUENCY_PROP, Conf.DBPEDIA_PROP_RANGE, Conf.DBPEDIA_PROP_SCORE);
     }
 
