@@ -2,6 +2,7 @@ package com.sunzequn.af.algorithm1;
 
 import com.sunzequn.af.common.Constant;
 import com.sunzequn.af.prepare.Triple;
+import com.sunzequn.af.utils.MapUtil;
 
 import java.io.Serializable;
 import java.util.*;
@@ -12,6 +13,8 @@ import java.util.*;
  * 针对一个属性值对
  */
 class SubBlock implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     //和Block的目标属性是一样的
     private String targetPropId;
@@ -50,6 +53,17 @@ class SubBlock implements Serializable {
         }
     }
 
+    public void mine() {
+        System.out.println("SubBlock: " + targetPropId + " " + targetPropValueId + " " + frequency);
+        Map<String, Integer> sourceProps = new HashMap<>();
+        for (LinkedPair linkedPair : linkedPairs) {
+            for (String s : linkedPair.getSourceFacts().keySet()) {
+                MapUtil.addValueNum(sourceProps, s + "_" + linkedPair.getSourceFacts().get(s));
+            }
+        }
+        System.out.println(MapUtil.sortMapByValue(sourceProps).get(2));
+    }
+
     public String getTargetPropId() {
         return targetPropId;
     }
@@ -65,4 +79,5 @@ class SubBlock implements Serializable {
     public List<LinkedPair> getLinkedPairs() {
         return linkedPairs;
     }
+
 }

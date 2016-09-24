@@ -34,11 +34,12 @@ public class Main {
             System.out.println("第 " + num + " 个Block");
             String line = it.nextLine();
             //最后一行有问题
-            if (num < 996) {
+            if (num == 3) {
                 try {
                     Block block = (Block) SerializableUtil.str2Object(line);
+                    block.mine();
                 } catch (Exception e) {
-                    System.out.println(num);
+                    e.printStackTrace();
                 }
 
             }
@@ -51,7 +52,13 @@ public class Main {
         //从文件加载target属性频数
         TargetRelations targetRelations = new TargetRelations(Constant.TARGET_PROP_FILE);
         WriteUtil writeUtil = new WriteUtil(Conf.BLOCK, false);
+        int num = 0;
         while (!targetRelations.isEmpty()) {
+            num++;
+            if (num == 5) {
+                writeUtil.close();
+                return;
+            }
             String[] relation = targetRelations.popRelation();
             String propId = relation[0];
             //对每一个属性构造block

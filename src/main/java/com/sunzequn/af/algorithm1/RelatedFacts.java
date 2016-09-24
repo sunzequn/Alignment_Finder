@@ -11,6 +11,8 @@ import java.util.*;
  */
 public class RelatedFacts implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     //key是属性，value是一个二元组的list，０元是主语，１元是宾语
     private Map<String, List<String[]>> factsPSO = new HashMap<>();
     //key是主语，value是一个二元组的list，０元是谓词，１元是宾语

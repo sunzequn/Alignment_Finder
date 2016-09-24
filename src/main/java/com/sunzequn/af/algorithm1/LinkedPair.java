@@ -14,6 +14,8 @@ import java.util.Map;
  */
 class LinkedPair implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     private String targetInstanceId;
     private String sourceInstanceId;
     //    private Map<String, String> targetFacts = new HashMap<>();

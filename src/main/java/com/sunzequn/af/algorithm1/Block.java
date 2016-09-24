@@ -15,6 +15,9 @@ import java.util.List;
  * 针对一个属性
  */
 class Block implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     //目标属性
     private String targetPropId;
     private double score;
@@ -44,6 +47,13 @@ class Block implements Serializable {
         }
     }
 
+    public void mine() {
+        System.out.println("Block: " + targetPropId + " " + score);
+        for (SubBlock subBlock : subBlocks) {
+            subBlock.mine();
+        }
+    }
+
     public String getTargetPropId() {
         return targetPropId;
     }
@@ -55,4 +65,5 @@ class Block implements Serializable {
     public List<SubBlock> getSubBlocks() {
         return subBlocks;
     }
+
 }
