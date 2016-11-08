@@ -21,12 +21,13 @@ public class TimeUtil {
         endTime = new Date().getTime();
     }
 
-    public static long duration() {
+    private static long duration() {
         end();
         return endTime - startTime;
     }
 
     public static void print() {
+        duration();
         System.out.println("cost: " + duration() + " milliseconds");
     }
 

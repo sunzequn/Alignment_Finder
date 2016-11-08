@@ -13,21 +13,9 @@ import java.util.Map;
  */
 public class TripleUtil {
 
-    public static Map<String, Integer> getFrequencyPropValues(List<Triple> triples, int threshold) {
-        Map<String, Integer> propValuesMap = new HashMap<>();
-        for (Triple triple : triples) {
-            String key = triple.getP() + "_" + triple.getO();
-            MapUtil.addValueNum(propValuesMap, key);
-        }
-        Map<String, Integer> temp = new HashMap<>();
-        propValuesMap.entrySet().stream().filter(entry -> entry.getValue() > threshold).forEach(entry -> {
-            temp.put(entry.getKey(), entry.getValue());
-        });
-        return temp.size() > 0 ? temp : null;
-    }
 
-    public static Triple parseLineId(String line) {
-        String[] params = line.split(Conf.SPLIT);
+    public static Triple parseLine(String line) {
+        String[] params = line.trim().split(Conf.SPLIT);
         if (params.length == 3) {
             return new Triple(params[0], params[1], params[2]);
         }
@@ -40,7 +28,7 @@ public class TripleUtil {
      * @param line
      * @return
      */
-    public static Triple parseLine(String line) {
+    public static Triple parseTTLLine(String line) {
         line = StringUtils.removeEnd(line, ".").trim();
         String[] params = line.split(" ");
         if (params.length == 3) {

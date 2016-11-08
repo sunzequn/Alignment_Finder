@@ -75,13 +75,5 @@ public class OwlUtil {
         return leaves.size() == 0 ? null : leaves;
     }
 
-    public static void main(String[] args) throws Exception {
-        OwlUtil owlUtil = new OwlUtil(Conf.DBPEDIA_ONTOLOGY);
-        String uri = "http://dbpedia.org/ontology/Organisation";
-//        System.out.println(owlUtil.getSuperestClass(uri).getURI());
-//        System.out.println(owlUtil.getSuperestClass("http://dbpedia.org/ontology/EducationalInstitution"));
-//        System.out.println(owlUtil.listDirectLeaves(ROOT_URI));
-//        System.out.println(owlUtil.listTopClasses());
-        System.out.println(owlUtil.listAllLeaves(uri).size());
-    }
+
 }
